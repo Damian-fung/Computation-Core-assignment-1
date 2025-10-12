@@ -59,8 +59,12 @@ export function splitBill(input: BillInput): BillOutput {
 export function formatDate(date: string): string {
   // input format: YYYY-MM-DD, e.g. "2024-03-21"
   // output format: YYYY年M月D日, e.g. "2024年3月21日"
-  return ''
-}
+  let parts = date.split('-')
+  let year = parts[0]
+  let month = parts[1]
+  let day = parts[2]
+  console.log(year, month, day)
+  return (date.replace('-', '年').replace('-', '月') + '日').replace('年0', '年')}
 
 function calculateSubTotal(items: BillItem[]): number {
   // sum up all the price of the items
